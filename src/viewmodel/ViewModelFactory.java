@@ -19,6 +19,7 @@ public class ViewModelFactory {
     public AddTaskVM getAddTaskVM() {
         if(addTaskVM == null) addTaskVM = new AddTaskVM(modelFactory.getTaskModel());
         return addTaskVM;
+        fuck ur mom
     }
 
  */
