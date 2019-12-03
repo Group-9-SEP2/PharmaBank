@@ -1,12 +1,18 @@
 package model;
 
 public class ModelFactory {
+    private LoginModel loginModel;
+    private AdminModel adminModel;
 
-    private PharmaModel taskModel;
+    public LoginModel LoginModel() {
+        if(loginModel == null)
+            loginModel = new LoginModelImp();
+        return loginModel;
+    }
 
-    public PharmaModel getPharmaModel() {
-        if(taskModel == null)
-            taskModel = new PharmaModelManager();
-        return taskModel;
+    public AdminModel AdminModel() {
+        if(adminModel == null)
+            adminModel = new AdminModelImp();
+        return adminModel;
     }
 }

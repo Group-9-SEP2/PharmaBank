@@ -4,9 +4,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import tutorial.view.addtask.AddTaskController;
-import tutorial.view.alltasks.AllTasksController;
-import tutorial.viewmodel.ViewModelFactory;
 import viewmodel.ViewModelFactory;
 
 import java.io.IOException;
@@ -16,9 +13,7 @@ public class ViewHandler {
     private ViewModelFactory viewModelFactory;
     private Stage mainStage;
 
-    private Scene allTasksScene;
-    private Scene addTaskScene;
-    private Scene nextTaskScene;
+    private Scene exampleScene;
 
     public ViewHandler(Stage stage, ViewModelFactory vmf) {
         viewModelFactory = vmf;
@@ -26,43 +21,27 @@ public class ViewHandler {
     }
 
     public void start() {
-        openAllTasksView();
-        //openAddTaskView();
+        //openExampleView();
         mainStage.show();
     }
-
-    public void openAllTasksView() {
+/*
+AGAIN EXAMPLE COPY AND CHANGE
+    public void openExampleView() {
         FXMLLoader loader = new FXMLLoader();
 
         if(allTasksScene == null) {
             Parent root = getRootByPath("alltasks/AllTasksView.fxml", loader);
-            AllTasksController controller = loader.getController();
-            controller.init(viewModelFactory.getAllTasksVM(), this);
-            allTasksScene = new Scene(root);
+            ExampleController controller = loader.getController();
+            controller.init(viewModelFactory.getExampleVM(), this);
+            exampleScene = new Scene(root);
         }
 
-        mainStage.setTitle("View tasks");
-        mainStage.setScene(allTasksScene);
+        mainStage.setTitle("Example");
+        mainStage.setScene(exampleScene);
 
     }
+*/
 
-    public void openAddTaskView() {
-        FXMLLoader loader = new FXMLLoader();
-
-        if(addTaskScene == null) {
-            Parent root = getRootByPath("addtask/AddTaskView.fxml", loader);
-            AddTaskController controller = loader.getController();
-            controller.init(viewModelFactory.getAddTaskVM(), this);
-            addTaskScene = new Scene(root);
-        }
-
-        mainStage.setTitle("Add task");
-        mainStage.setScene(addTaskScene);
-    }
-
-    public void openGetNextTaskView() {
-
-    }
 
     private Parent getRootByPath(String path, FXMLLoader loader) {
         loader.setLocation(getClass().getResource(path));
