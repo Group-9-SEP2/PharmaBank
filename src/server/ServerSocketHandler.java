@@ -26,7 +26,7 @@ public class ServerSocketHandler implements Runnable {
         } catch (IOException e){
             e.printStackTrace();
         }
-        login.addListener("Login", evt -> LoginStatus(evt));
+        login.addPropertyChangeListener("Login", evt -> LoginStatus(evt));
     }
 
     @Override

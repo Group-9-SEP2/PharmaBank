@@ -34,10 +34,6 @@ public class ClientFactory {
         }
     }
 
-    public void sendToServer(String command){
-        socketHandler.sendToServer(command);
-    }
-
     public LoginClient getLogin() {
         return login;
     }
