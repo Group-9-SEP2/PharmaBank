@@ -1,14 +1,13 @@
 package server;
 
-import server.databasestuff.AdminDAO;
 import server.databasestuff.DatabaseConnection;
-import server.databasestuff.LoginDAO;
+import server.databasestuff.AdminDAOImp;
 
 public class StartServer {
     public static void main(String[] args) {
         DatabaseConnection database = new DatabaseConnection();
-        AdminDAO admin = new AdminDAO(database);
-        LoginDAO login = new LoginDAO(database);
-        SocketServer server = new SocketServer(admin, login);
+        //PlaceholderDAO admin = new PlaceholderDAO(database);
+        AdminDAOImp login = new AdminDAOImp(database);
+        SocketServer server = new SocketServer(login);
     }
 }

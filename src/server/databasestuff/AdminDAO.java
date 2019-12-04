@@ -1,6 +1,8 @@
 package server.databasestuff;
 
-public class AdminDAO {
-    public AdminDAO(DatabaseConnection database) {
-    }
+import shared.Admin;
+
+public interface AdminDAO {
+    boolean checkLogin(String username, String pasword);
+    Admin getUser();
 }

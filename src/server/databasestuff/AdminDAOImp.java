@@ -1,18 +1,25 @@
 package server.databasestuff;
 
 import server.PropertyChangeSubject;
-import server.databasestuff.DatabaseConnection;
+import shared.Admin;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
-public class LoginDAO implements PropertyChangeSubject {
+public class AdminDAOImp implements AdminDAO,PropertyChangeSubject {
 
     private PropertyChangeSupport support = new PropertyChangeSupport(this);
-    public LoginDAO(DatabaseConnection database) {
+    public AdminDAOImp(DatabaseConnection database) {
     }
 
-    public void checkLogin(String s, String s1) {
+    @Override
+    public boolean checkLogin(String username, String pasword) {
+        return true;
+    }
+
+    @Override
+    public Admin getUser() {
+        return null;
     }
 
     @Override
@@ -42,4 +49,6 @@ public class LoginDAO implements PropertyChangeSubject {
     public void removePropertyChangeListener(PropertyChangeListener listener) {
         support.removePropertyChangeListener(listener);
     }
+
+
 }

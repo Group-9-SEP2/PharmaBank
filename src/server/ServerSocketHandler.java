@@ -1,7 +1,7 @@
 package server;
 
-import server.databasestuff.AdminDAO;
-import server.databasestuff.LoginDAO;
+import server.databasestuff.AdminDAOImp;
+import shared.Admin;
 
 import java.beans.PropertyChangeEvent;
 import java.io.IOException;
@@ -10,23 +10,21 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 
 public class ServerSocketHandler implements Runnable {
-    private AdminDAO admin;
-    private LoginDAO login;
+    private AdminDAOImp admin;
     private Socket socket;
     private ObjectOutputStream outToClient;
     private ObjectInputStream inFromClient;
 
-    public ServerSocketHandler(Socket socket, AdminDAO admin, LoginDAO login){
+    public ServerSocketHandler(Socket socket, AdminDAOImp admin){
         this.socket = socket;
         this.admin = admin;
-        this.login = login;
         try {
             outToClient = new ObjectOutputStream(socket.getOutputStream());
             inFromClient = new ObjectInputStream(socket.getInputStream());
         } catch (IOException e){
             e.printStackTrace();
         }
-        login.addPropertyChangeListener("Login", evt -> LoginStatus(evt));
+        admin.addPropertyChangeListener("Login", evt -> LoginStatus(evt));
     }
 
     @Override
@@ -44,7 +42,17 @@ public class ServerSocketHandler implements Runnable {
     }
 
     private void Login(String[] dividedFromClient) {
-        login.checkLogin(dividedFromClient[1], dividedFromClient[2]);
+        try {
+            if(admin.checkLogin(dividedFromClient[1], dividedFromClient[2])){
+                Admin adminInfo = admin.getUser();
+                outToClient.writeObject("Login");
+                outToClient.writeObject(adminInfo);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        // other user if if(bla)
+
     }
 
     private void LoginStatus(PropertyChangeEvent evt){
