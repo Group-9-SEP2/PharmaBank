@@ -1,15 +1,15 @@
 package server.databasestuff;
 
 import server.PropertyChangeSubject;
-import shared.Admin;
+import shared.User;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
-public class AdminDAOImp implements AdminDAO,PropertyChangeSubject {
+public class UserDAOImp implements UserDAO,PropertyChangeSubject {
 
     private PropertyChangeSupport support = new PropertyChangeSupport(this);
-    public AdminDAOImp(DatabaseConnection database) {
+    public UserDAOImp(DatabaseConnection database) {
     }
 
     @Override
@@ -18,7 +18,7 @@ public class AdminDAOImp implements AdminDAO,PropertyChangeSubject {
     }
 
     @Override
-    public Admin getUser() {
+    public User getUser() {
         return null;
     }
 

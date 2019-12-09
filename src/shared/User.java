@@ -2,5 +2,5 @@ package shared;
 
 import java.io.Serializable;
 
-public class Admin implements Serializable {
+public class User implements Serializable {
 }

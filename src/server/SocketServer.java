@@ -1,13 +1,13 @@
 package server;
 
-import server.databasestuff.AdminDAOImp;
+import server.databasestuff.UserDAOImp;
 
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
 public class SocketServer {
-    public SocketServer( AdminDAOImp admin){
+    public SocketServer( UserDAOImp admin){
         try {
             ServerSocket welcomeSocket = new ServerSocket(3000);
             while(true){

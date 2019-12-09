@@ -1,6 +1,6 @@
 package networking;
 
-import shared.Admin;
+import shared.User;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -47,8 +47,8 @@ public class ClientSocketHandler implements Runnable{
                 client.getLogin().badLogin();
             else{
                 Object object = inFromServer.readObject();
-                if(object instanceof Admin){
-                    Admin adminUser = (Admin) object;
+                if(object instanceof User){
+                    User adminUser = (User) object;
                     client.getAdmin().getAccess();
                 }
             }
