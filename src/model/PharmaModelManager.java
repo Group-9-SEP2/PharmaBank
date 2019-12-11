@@ -1,4 +1,4 @@
 package model;
 
-public class PharmaModelManager implements PharmaModel {
+public class PharmaModelManager implements LoginModel {
 }

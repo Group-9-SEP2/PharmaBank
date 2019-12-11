@@ -2,11 +2,11 @@ package model;
 
 public class ModelFactory {
 
-    private PharmaModel taskModel;
+    private LoginModel loginModel;
 
-    public PharmaModel getPharmaModel() {
-        if(taskModel == null)
-            taskModel = new PharmaModelManager();
-        return taskModel;
+    public LoginModel getLoginModel() {
+        if(loginModel == null)
+            loginModel = new LoginModelImp();
+        return loginModel;
     }
 }

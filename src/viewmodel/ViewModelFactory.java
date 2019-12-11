@@ -1,15 +1,23 @@
 package viewmodel;
 
 import model.ModelFactory;
+import viewmodel.login.LoginVM;
 
 public class ViewModelFactory {
     private ModelFactory modelFactory;
-    //private AllTasksVM allTasksVM;
+    private LoginVM loginVM;
     //private AddTaskVM addTaskVM;
 
     public ViewModelFactory(ModelFactory modelFactory) {
         this.modelFactory = modelFactory;
     }
+
+    public LoginVM getLoginVM() {
+        if(loginVM == null)
+            loginVM = new LoginVM(modelFactory.getLoginModel());
+        return loginVM;
+    }
+
 /*
     public AllTasksVM getAllTasksVM() {
         if(allTasksVM == null) allTasksVM = new AllTasksVM(modelFactory.getTaskModel());

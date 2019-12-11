@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b8db11d0-328e-4019-858b-a854b35ef3a3" name="Default Changelist" comment="" />
+    <list default="true" id="867a8984-20cb-48c8-835f-1d78879e152c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/ModelFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ModelFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/PharmaModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/LoginModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/PharmaModelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/PharmaModelManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/ViewHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ViewHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/usersLogin/LogInController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/usersLogin/Login.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewmodel/ViewModelFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewmodel/ViewModelFactory.java" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,8 +20,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -19,6 +29,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1Uk1GvqYHzP1YGS7i0LU3rLjNer" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -36,24 +49,65 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Rokas\Desktop\misc\SEMESTERS\second\PharmaBank\PharmaBank\src" />
+      <recent name="C:\Users\Rokas\Desktop\misc\SEMESTERS\second\PharmaBank\PharmaBank\src\view\login" />
+      <recent name="C:\Users\Rokas\Desktop\misc\SEMESTERS\second\PharmaBank\PharmaBank\src\viewmodel\login" />
+      <recent name="C:\Users\Rokas\Desktop\misc\SEMESTERS\second\PharmaBank\PharmaBank\src\view\usersLogin" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="model" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
       <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
       </list>
     </option>
+  </component>
+  <component name="RunManager" selected="Application.RunPharmaApp">
+    <configuration name="PharmaApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="PharmaApp" />
+      <module name="PharmaBank" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RunClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="RunClient" />
+      <module name="PharmaBank" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RunPharmaApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="RunPharmaApp" />
+      <module name="PharmaBank" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.RunPharmaApp" />
+        <item itemvalue="Application.PharmaApp" />
+        <item itemvalue="Application.RunClient" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="b8db11d0-328e-4019-858b-a854b35ef3a3" name="Default Changelist" comment="" />
+      <changelist id="867a8984-20cb-48c8-835f-1d78879e152c" name="Default Changelist" comment="" />
       <created>1575885688646</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -66,6 +120,19 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="25" key="#Notifications" timestamp="1575885961000">
