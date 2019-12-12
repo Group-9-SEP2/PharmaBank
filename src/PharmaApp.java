@@ -1,7 +1,6 @@
 import javafx.application.Application;
 import javafx.stage.Stage;
 import model.ModelFactory;
-import model.ModelFactory;
 import networking.ClientFactory;
 import view.ViewHandler;
 import viewmodel.ViewModelFactory;
