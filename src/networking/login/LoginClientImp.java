@@ -5,15 +5,13 @@ import networking.ClientSocketHandler;
 import networking.login.LoginClient;
 
 public class LoginClientImp implements LoginClient {
-    private LoginModel model;
     private ClientSocketHandler socketHandler;
+    private LoginModel model;
+    private String response;
 
-    public LoginClientImp(ClientSocketHandler csh, LoginModel model){
-        this.model = model;
-        model.setClient(this);
+    public LoginClientImp(ClientSocketHandler csh){
         this.socketHandler = csh;
     }
-
 
     @Override
     public void Login(String username, String password) {
@@ -21,9 +19,23 @@ public class LoginClientImp implements LoginClient {
         socketHandler.sendToServer(sending);
     }
 
-    public void loginSuccesStatus(String status){
-        model.loginStatus(status);
+    @Override
+    public String loginSuccesStatus() {
+        return null;
+    }
+
+    @Override
+    public void loginResponse(String response) {
+        this.response = response;
+    }
+
+    public void setResponse(String response){
+        this.response = response;
     }
 
 
+    @Override
+    public void setModel(LoginModel model) {
+        this.model = model;
+    }
 }

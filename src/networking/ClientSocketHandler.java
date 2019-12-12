@@ -42,6 +42,8 @@ public class ClientSocketHandler implements Runnable{
     }
 
     public void loginHandling(String[] responseDivided){
+        client.getLogin().loginResponse(responseDivided[1]);
+        /*
         try {
             if(responseDivided[1].equals("bad"))
                 client.getLogin().badLogin();
@@ -55,6 +57,8 @@ public class ClientSocketHandler implements Runnable{
         } catch (IOException | ClassNotFoundException e){
             e.printStackTrace();
         }
+
+         */
 
     }
 

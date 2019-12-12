@@ -12,13 +12,11 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 
 public class ClientFactory {
-    private ModelFactory mf;
     private LoginClient login;
     private AdminClient admin;
     private ClientSocketHandler socketHandler;
-    public ClientFactory(ModelFactory mf) {
-        this.mf = mf;
-        this.login = new LoginClientImp(socketHandler, mf.LoginModel());
+    public ClientFactory() {
+        this.login = new LoginClientImp(socketHandler);
         //this.admin = new AdminClientImp(socketHandler, mf.AdminModel());
         try {
             Socket socket = new Socket("localhost", 3000);

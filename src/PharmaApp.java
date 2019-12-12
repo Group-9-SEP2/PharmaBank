@@ -9,12 +9,10 @@ import viewmodel.ViewModelFactory;
 public class PharmaApp extends Application {
     @Override
     public void start(Stage stage) throws Exception {
-        //DO NOT TOUCH THIS
-        ModelFactory mf = new ModelFactory();
+        ClientFactory cf = new ClientFactory();
+        ModelFactory mf = new ModelFactory(cf);
         ViewModelFactory vmf = new ViewModelFactory(mf);
         ViewHandler vh = new ViewHandler(stage, vmf);
-        ClientFactory cf = new ClientFactory(mf);
-        //SocketClient cl = new SocketClient(mf.getTaskModel());
         vh.start();
     }
 }

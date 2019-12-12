@@ -1,7 +1,10 @@
 package networking.login;
 
+import model.LoginModel;
+
 public interface LoginClient {
     void Login(String username, String password);
-    void loginSuccesStatus(String response);
-    void badLogin();
+    String loginSuccesStatus();
+    void loginResponse(String response);
+    void setModel(LoginModel model);
 }
