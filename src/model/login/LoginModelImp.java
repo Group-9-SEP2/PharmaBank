@@ -1,6 +1,7 @@
-package model;
+package model.login;
 
-import networking.login.LoginClientImp;
+import model.login.LoginModel;
+import networking.login.LoginClient;
 
 public class LoginModelImp implements LoginModel {
     private LoginClient client;
@@ -8,7 +9,8 @@ public class LoginModelImp implements LoginModel {
     private String password;
     private String serverResponse;
 
-    public LoginModelImp(LoginClient client){
+    public LoginModelImp(LoginClient loginClient) {
+        this.client = loginClient;
     }
 
     @Override
@@ -17,7 +19,7 @@ public class LoginModelImp implements LoginModel {
     }
 
     public void login(String username, String password) {
-        //client.login(username,password);
+        client.Login(username,password);
     }
 
     @Override

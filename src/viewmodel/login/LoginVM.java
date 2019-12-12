@@ -2,7 +2,7 @@ package viewmodel.login;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import model.LoginModel;
+import model.login.LoginModel;
 
 import java.beans.PropertyChangeEvent;
 public class LoginVM {

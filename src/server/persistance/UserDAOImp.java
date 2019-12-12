@@ -1,4 +1,4 @@
-package server.databasestuff;
+package server.persistance;
 
 import server.PropertyChangeSubject;
 import shared.User;

@@ -1,4 +1,4 @@
-package model;
+package model.admin;
 
 import networking.admin.AdminClientImp;
 

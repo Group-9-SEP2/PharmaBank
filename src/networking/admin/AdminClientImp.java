@@ -1,6 +1,6 @@
 package networking.admin;
 
-import model.AdminModel;
+import model.admin.AdminModel;
 import networking.ClientSocketHandler;
 
 public class AdminClientImp implements AdminClient {
@@ -11,5 +11,10 @@ public class AdminClientImp implements AdminClient {
         this.model = model;
         model.setClient(this);
         this.socketHandler = csh;
+    }
+
+    @Override
+    public void getAccess() {
+
     }
 }
