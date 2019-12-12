@@ -1,6 +1,5 @@
 package viewmodel.login;
 
-import javafx.beans.property.Property;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import model.LoginModel;
@@ -18,10 +17,7 @@ public class LoginVM {
         //model.addPropertyChangeListener(EventType.LOGIN_RESULT.toString(), this::onLoginResponse);
     }
 
-    private void onLoginResponse(PropertyChangeEvent evt) {
-        String result = (String) evt.getNewValue();
-        loginReponse.set(result);
-    }
+
 
     public StringProperty usernameProperty() {
         return username;
@@ -41,12 +37,9 @@ public class LoginVM {
         //model.login(username.get(), password.get());
     }
 
-    public StringProperty usernameStringProperty() {
-        return username;
-    }
-
-    public StringProperty passwordStringProperty() {
-        return password;
+    private void onLoginResponse(PropertyChangeEvent evt) {
+        String result = (String) evt.getNewValue();
+        loginReponse.set(result);
     }
 }
 

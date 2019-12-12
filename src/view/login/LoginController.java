@@ -8,25 +8,25 @@ import view.ViewHandler;
 import viewmodel.login.LoginVM;
 
 public class LoginController {
-    @FXML
-    private PasswordField passWordText;
-    @FXML
-    private TextField userNameText;
-
     private ViewHandler viewHandler;
     private LoginVM viewModel;
-
-    public void onHelpButton(ActionEvent actionEvent) {
-    }
-
-    public void onLoginButton(ActionEvent actionEvent) {
-    }
 
     public void init(LoginVM vm, ViewHandler vh) {
         viewHandler = vh;
         viewModel = vm;
-        userNameText.textProperty().bindBidirectional(vm.usernameStringProperty());
-        passWordText.textProperty().bindBidirectional(vm.passwordStringProperty());
+        userNameText.textProperty().bindBidirectional(vm.usernameProperty());
+        passWordText.textProperty().bindBidirectional(vm.passwordProperty());
+    }
+
+    @FXML
+    private PasswordField passWordText;
+
+    @FXML
+    private TextField userNameText;
+
+    @FXML
+    void onLoginButton(ActionEvent event) {
+
     }
 }
 

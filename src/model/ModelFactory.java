@@ -1,7 +1,9 @@
 package model;
 
-public class ModelFactory {
+import Networking.ClientFactory;
 
+public class ModelFactory {
+    private ClientFactory clientFactory;
     private LoginModel loginModel;
 
     public LoginModel getLoginModel() {
