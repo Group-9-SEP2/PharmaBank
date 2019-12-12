@@ -1,6 +1,6 @@
 package server;
 
-import server.databasestuff.UserDAOImp;
+import server.persistance.UserDAOImp;
 import shared.User;
 
 import java.beans.PropertyChangeEvent;

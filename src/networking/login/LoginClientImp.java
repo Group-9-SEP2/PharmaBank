@@ -1,8 +1,7 @@
 package networking.login;
 
-import model.LoginModel;
+import model.login.LoginModel;
 import networking.ClientSocketHandler;
-import networking.login.LoginClient;
 
 public class LoginClientImp implements LoginClient {
     private ClientSocketHandler socketHandler;

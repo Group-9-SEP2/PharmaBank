@@ -1,6 +1,6 @@
 package server;
 
-import server.databasestuff.UserDAOImp;
+import server.persistance.UserDAOImp;
 
 import java.io.IOException;
 import java.net.ServerSocket;

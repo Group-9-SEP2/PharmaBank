@@ -1,7 +1,7 @@
 package server;
 
-import server.databasestuff.DatabaseConnection;
-import server.databasestuff.UserDAOImp;
+import server.persistance.DatabaseConnection;
+import server.persistance.UserDAOImp;
 
 public class StartServer {
     public static void main(String[] args) {
