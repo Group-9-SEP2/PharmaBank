@@ -35,6 +35,7 @@ public class ClientSocketHandler implements Runnable{
 
     public void sendToServer(String command){
         try {
+            System.out.println(command);
             outToServer.writeObject(command);
         } catch (IOException e){
             e.printStackTrace();

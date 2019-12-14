@@ -10,7 +10,7 @@ public class LoginVM {
     private LoginModel model;
 
     public LoginVM(LoginModel loginModel) {
-        this.model = model;
+        this.model = loginModel;
         username = new SimpleStringProperty();
         password = new SimpleStringProperty();
         loginReponse = new SimpleStringProperty();
@@ -34,7 +34,7 @@ public class LoginVM {
     public void login() {
         System.out.println(username.get());
         System.out.println(password.get());
-        //model.login(username.get(), password.get());
+        model.login(username.get(), password.get());
     }
 
     private void onLoginResponse(PropertyChangeEvent evt) {

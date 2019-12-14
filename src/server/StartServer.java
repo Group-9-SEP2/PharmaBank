@@ -1,13 +1,17 @@
 package server;
 
+import server.model.Model;
+import server.model.ModelImp;
+import server.networking.SocketServer;
 import server.persistance.DatabaseConnection;
-import server.persistance.UserDAOImp;
+import server.persistance.User.UserDAO;
+import server.persistance.User.UserDAOImp;
 
 public class StartServer {
     public static void main(String[] args) {
         DatabaseConnection database = new DatabaseConnection();
-        //PlaceholderDAO admin = new PlaceholderDAO(database);
-        UserDAOImp login = new UserDAOImp(database);
-        SocketServer server = new SocketServer(login);
+        UserDAO user = new UserDAOImp(database);
+        Model serverModel = new ModelImp(user);
+        SocketServer server = new SocketServer(serverModel);
     }
 }

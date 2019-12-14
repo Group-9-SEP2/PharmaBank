@@ -16,8 +16,6 @@ public class ClientFactory {
     private AdminClient admin;
     private ClientSocketHandler socketHandler;
     public ClientFactory() {
-        this.login = new LoginClientImp(socketHandler);
-        //this.admin = new AdminClientImp(socketHandler, mf.AdminModel());
         try {
             Socket socket = new Socket("localhost", 3000);
             socketHandler = new ClientSocketHandler(
@@ -30,6 +28,9 @@ public class ClientFactory {
         }catch (IOException e) {
             e.printStackTrace();
         }
+        this.login = new LoginClientImp(socketHandler);
+        //this.admin = new AdminClientImp(socketHandler);
+
     }
 
     public LoginClient getLogin() {

@@ -1,18 +1,18 @@
-package server;
+package server.networking;
 
-import server.persistance.UserDAOImp;
+import server.model.Model;
 
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
 public class SocketServer {
-    public SocketServer( UserDAOImp admin){
+    public SocketServer(Model serverModel){
         try {
             ServerSocket welcomeSocket = new ServerSocket(3000);
             while(true){
                 Socket connectionSocket = welcomeSocket.accept();
-                ServerSocketHandler c = new ServerSocketHandler(connectionSocket, admin);
+                ServerSocketHandler c = new ServerSocketHandler(connectionSocket, serverModel);
                 new Thread(c, "Chat user").start();
                 System.out.println("Connected");
             }

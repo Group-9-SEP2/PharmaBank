@@ -13,8 +13,7 @@ public class ViewModelFactory {
 
     public LoginVM getLoginVM() {
         if(loginVM == null)
-            loginVM = new LoginVM(modelFactory.getLoginModel());
-        System.out.println(passed);
+            loginVM = new LoginVM(modelFactory.LoginModel());
         return loginVM;
     }
 }

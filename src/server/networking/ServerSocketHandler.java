@@ -1,7 +1,6 @@
-package server;
+package server.networking;
 
-import server.persistance.UserDAOImp;
-import shared.User;
+import server.model.Model;
 
 import java.beans.PropertyChangeEvent;
 import java.io.IOException;
@@ -10,21 +9,22 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 
 public class ServerSocketHandler implements Runnable {
-    private UserDAOImp user;
+
+    private Model serverModel;
     private Socket socket;
     private ObjectOutputStream outToClient;
     private ObjectInputStream inFromClient;
 
-    public ServerSocketHandler(Socket socket, UserDAOImp user){
+    public ServerSocketHandler(Socket socket, Model serverModel){
         this.socket = socket;
-        this.user = user;
+        this.serverModel = serverModel;
         try {
             outToClient = new ObjectOutputStream(socket.getOutputStream());
             inFromClient = new ObjectInputStream(socket.getInputStream());
         } catch (IOException e){
             e.printStackTrace();
         }
-        user.addPropertyChangeListener("Login", evt -> LoginStatus(evt));
+        //user.addPropertyChangeListener("Login", evt -> LoginStatus(evt));
     }
 
     @Override
@@ -32,16 +32,21 @@ public class ServerSocketHandler implements Runnable {
         try{
             while (true){
                 String fromClient = (String) inFromClient.readObject();
-                String[] dividedFromClient = fromClient.split("|GAP|");
+                String[] dividedFromClient = fromClient.split("/");
                 if(dividedFromClient[0].equals("Login"))
-                    Login(dividedFromClient);
+                    serverModel.login(dividedFromClient[1], dividedFromClient[2]);
+                else if(dividedFromClient[0].equals("Admin")){
+                    if(dividedFromClient[1].equals("CreateBuilding"))
+                        serverModel.createBuilding();
+                }
             }
         } catch (IOException | ClassNotFoundException e){
             e.printStackTrace();
         }
     }
-
+/*
     private void Login(String[] dividedFromClient) {
+        System.out.println("inside server");
         try {
             if(user.checkLogin(dividedFromClient[1], dividedFromClient[2])){
                 User userInfo = user.getUser();
@@ -54,7 +59,7 @@ public class ServerSocketHandler implements Runnable {
         // other user if if(bla)
 
     }
-
+*/
     private void LoginStatus(PropertyChangeEvent evt){
         try {
             String status = (String) evt.getNewValue();

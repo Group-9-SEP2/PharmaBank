@@ -14,7 +14,8 @@ public class LoginClientImp implements LoginClient {
 
     @Override
     public void Login(String username, String password) {
-        String sending = "Login" + "|GAP|" + username + "|GAP|" + password;
+        String sending = "Login" + "/" + username + "/" + password;
+        System.out.println(sending);
         socketHandler.sendToServer(sending);
     }
 
@@ -27,11 +28,6 @@ public class LoginClientImp implements LoginClient {
     public void loginResponse(String response) {
         this.response = response;
     }
-
-    public void setResponse(String response){
-        this.response = response;
-    }
-
 
     @Override
     public void setModel(LoginModel model) {

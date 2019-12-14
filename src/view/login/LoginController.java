@@ -1,13 +1,16 @@
 package view.login;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import view.ViewHandler;
 import viewmodel.login.LoginVM;
 
+import java.awt.event.ActionEvent;
+
 public class LoginController {
+
     private ViewHandler viewHandler;
     private LoginVM viewModel;
 
@@ -16,17 +19,20 @@ public class LoginController {
         viewModel = vm;
         userNameText.textProperty().bindBidirectional(vm.usernameProperty());
         passWordText.textProperty().bindBidirectional(vm.passwordProperty());
+        response.textProperty().bindBidirectional(vm.loginReponseProperty());
     }
 
     @FXML
-    private PasswordField passWordText;
+    private Label response;
 
     @FXML
     private TextField userNameText;
 
     @FXML
-    void onLoginButton(ActionEvent event) {
+    private TextField passWordText;
 
+    public void onLogin(javafx.event.ActionEvent event) {
+        viewModel.login();
     }
 }
 

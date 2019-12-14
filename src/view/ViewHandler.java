@@ -32,7 +32,6 @@ public class ViewHandler {
             controller.init(viewModelFactory.getLoginVM(), this);
             loginScene = new Scene(root);
         }
-
         mainStage.setTitle("Login");
         mainStage.setScene(loginScene);
     }

@@ -7,6 +7,4 @@ public interface LoginClient {
     String loginSuccesStatus();
     void loginResponse(String response);
     void setModel(LoginModel model);
-
-    void login(String username, String password);
 }
