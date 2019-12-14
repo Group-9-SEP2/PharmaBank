@@ -4,16 +4,18 @@ import server.persistance.User.UserDAO;
 import shared.User;
 
 public class ModelImp implements Model {
-    private UserDAO user;
+    private UserDAO userDAO;
 
     public ModelImp(UserDAO user ) {
-        this.user = user;
+        this.userDAO = user;
     }
 
     @Override
     public User login(String username, String password) {
-        user.getUserWithLogin(username, password);
-        return null;
+        User userFromDB = userDAO.getUserWithLogin(username, password);
+        System.out.println("returned from database");
+        System.out.println(userFromDB);
+        return userFromDB;
     }
 
     @Override

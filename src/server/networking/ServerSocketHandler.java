@@ -34,7 +34,7 @@ public class ServerSocketHandler implements Runnable {
                 String fromClient = (String) inFromClient.readObject();
                 String[] dividedFromClient = fromClient.split("/");
                 if(dividedFromClient[0].equals("Login"))
-                    serverModel.login(dividedFromClient[1], dividedFromClient[2]);
+                    outToClient.writeObject(serverModel.login(dividedFromClient[1], dividedFromClient[2]));
                 else if(dividedFromClient[0].equals("Admin")){
                     if(dividedFromClient[1].equals("CreateBuilding"))
                         serverModel.createBuilding();

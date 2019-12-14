@@ -21,10 +21,12 @@ public class ClientSocketHandler implements Runnable{
     public void run() {
         try {
             while (true){
-                String response = (String) inFromServer.readObject();
-                String[] responseDivided = response.split("/");
-                if(responseDivided[0].equals("Login")){
-                    loginHandling(responseDivided);
+                User fromServer = (User) inFromServer.readObject();
+                if(fromServer != null)
+                    client.getAdmin();
+                else {
+                    System.out.println("Wrong username or password");
+                    client.getLogin().loginResponse("Wrong username or password");
                 }
             }
         } catch (IOException | ClassNotFoundException e){
@@ -40,26 +42,4 @@ public class ClientSocketHandler implements Runnable{
             e.printStackTrace();
         }
     }
-
-    public void loginHandling(String[] responseDivided){
-        client.getLogin().loginResponse(responseDivided[1]);
-        /*
-        try {
-            if(responseDivided[1].equals("bad"))
-                client.getLogin().badLogin();
-            else{
-                Object object = inFromServer.readObject();
-                if(object instanceof User){
-                    User adminUser = (User) object;
-                    client.getAdmin().getAccess();
-                }
-            }
-        } catch (IOException | ClassNotFoundException e){
-            e.printStackTrace();
-        }
-
-         */
-
-    }
-
 }

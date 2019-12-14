@@ -14,8 +14,9 @@ public class LoginModelImp implements LoginModel {
     }
 
     @Override
-    public void loginStatus(String response) {
+    public void loginResponse(String response) {
         serverResponse = response;
+        System.out.println(serverResponse + " after getting it form client");
     }
 
     public void login(String username, String password) {

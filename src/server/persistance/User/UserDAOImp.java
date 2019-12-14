@@ -17,29 +17,24 @@ public class UserDAOImp implements UserDAO {
 
     @Override
     public void storeUser(User newUser) {
-        database.commandToDatabase("INSERT INTO User VALUES ('"+ newUser.getUsername() +"', '"+ newUser.getPassword() +"', '"+ newUser.getAccessLevel() +"', '"+ newUser.getBuildingNo() +"', '"+ newUser.getUserNo()+"');");
+        //database.commandToDatabase("INSERT INTO User VALUES ('"+ newUser.getUsername() +"', '"+ newUser.getPassword() +"', '"+ newUser.getAccessLevel() +"', '"+ newUser.getBuildingNo() +"', '"+ newUser.getUserNo()+"');");
     }
 
     @Override
     public User getUser(String userNo) {
-        return database.commandToDatabase(
-                "SELECT * FROM User\n" +
-                        "WHERE userNo = '" + userNo+ "';");
+        //return database.commandToDatabase("SELECT * FROM User\n" + "WHERE userNo = '" + userNo+ "';");
+        return null;
     }
 
     @Override
-    public void getUserWithLogin(String username, String password) {
-        database.commandToDatabase(
-                "SELECT * FROM User\n" +
-                "WHERE username = '" + usename+ "' AND password = '"+ password +"';"
-        );
-
-        ArrayList<String> infoFromSelected = new ArrayList<>();
+    public User getUserWithLogin(String username, String password) {
+        User userFromServer = null;
+        /*
         try {
             database.getConnection().createStatement();
             ResultSet rs = database.getStatement().executeQuery(
                     "SELECT * FROM User\n" +
-                    "WHERE username = '" + usename+ "' AND password = '"+ password +"';"
+                    "WHERE username = '" + username + "' AND password = '"+ password +"';"
             );
 
 
@@ -49,11 +44,18 @@ public class UserDAOImp implements UserDAO {
             String buildingNoDB = rs.getString("buildingNo");
             String userNoDB = rs.getString("userNo");
 
-            User userFromServer = new User(usernameDB, passwordDB, accessLevelDB, buildingNoDB, userNoDB)
+            userFromServer = new User(usernameDB, passwordDB, accessLevelDB, buildingNoDB, userNoDB);
 
+            rs.close();
+            database.getStatement().close();
+            database.getConnection().close();
+
+            return userFromServer;
         } catch (Exception e) {
             e.printStackTrace();
         }
 
+         */
+        return null;
     }
 }

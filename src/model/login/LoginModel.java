@@ -3,6 +3,6 @@ import networking.login.LoginClientImp;
 
 public interface LoginModel {
     void login(String username, String password);
-    void loginStatus(String status);
+    void loginResponse(String status);
     String getServerResponse();
 }

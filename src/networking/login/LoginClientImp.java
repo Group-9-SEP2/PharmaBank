@@ -27,6 +27,7 @@ public class LoginClientImp implements LoginClient {
     @Override
     public void loginResponse(String response) {
         this.response = response;
+        model.loginResponse(response);
     }
 
     @Override
