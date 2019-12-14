@@ -22,11 +22,10 @@ public class ClientSocketHandler implements Runnable{
         try {
             while (true){
                 String response = (String) inFromServer.readObject();
-                String[] responseDivided = response.split("|GAP|");
+                String[] responseDivided = response.split("/");
                 if(responseDivided[0].equals("Login")){
                     loginHandling(responseDivided);
                 }
-
             }
         } catch (IOException | ClassNotFoundException e){
             e.printStackTrace();
