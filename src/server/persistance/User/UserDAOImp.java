@@ -29,7 +29,7 @@ public class UserDAOImp implements UserDAO {
     @Override
     public User getUserWithLogin(String username, String password) {
         User userFromServer = null;
-        /*
+
         try {
             database.getConnection().createStatement();
             ResultSet rs = database.getStatement().executeQuery(
@@ -43,9 +43,10 @@ public class UserDAOImp implements UserDAO {
             String accessLevelDB = rs.getString("accessLevel");
             String buildingNoDB = rs.getString("buildingNo");
             String userNoDB = rs.getString("userNo");
+            System.out.println("im in get user with login");
 
             userFromServer = new User(usernameDB, passwordDB, accessLevelDB, buildingNoDB, userNoDB);
-
+            //TODO Make the response of the server visible in gui
             rs.close();
             database.getStatement().close();
             database.getConnection().close();
@@ -54,8 +55,6 @@ public class UserDAOImp implements UserDAO {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-         */
         return null;
     }
 }

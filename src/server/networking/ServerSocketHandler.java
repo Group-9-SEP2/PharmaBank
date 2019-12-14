@@ -44,22 +44,6 @@ public class ServerSocketHandler implements Runnable {
             e.printStackTrace();
         }
     }
-/*
-    private void Login(String[] dividedFromClient) {
-        System.out.println("inside server");
-        try {
-            if(user.checkLogin(dividedFromClient[1], dividedFromClient[2])){
-                User userInfo = user.getUser();
-                outToClient.writeObject("Login");
-                outToClient.writeObject(userInfo);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        // other user if if(bla)
-
-    }
-*/
     private void LoginStatus(PropertyChangeEvent evt){
         try {
             String status = (String) evt.getNewValue();
