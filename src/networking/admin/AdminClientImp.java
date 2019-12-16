@@ -2,6 +2,7 @@ package networking.admin;
 
 import model.admin.AdminModel;
 import networking.ClientSocketHandler;
+import shared.User;
 
 public class AdminClientImp implements AdminClient {
     private ClientSocketHandler socketHandler;
@@ -14,7 +15,7 @@ public class AdminClientImp implements AdminClient {
     }
 
     @Override
-    public void getAccess() {
+    public void getAccess(User user) {
 
     }
 }

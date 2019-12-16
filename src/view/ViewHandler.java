@@ -13,7 +13,6 @@ public class ViewHandler {
     private Stage mainStage;
     private Scene loginScene;
 
-
     public ViewHandler(Stage stage, ViewModelFactory vmf) {
         viewModelFactory = vmf;
         mainStage = stage;

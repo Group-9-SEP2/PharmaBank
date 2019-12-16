@@ -1,5 +1,7 @@
 package networking.admin;
 
+import shared.User;
+
 public interface AdminClient {
-    void getAccess();
+    void getAccess(User user);
 }

@@ -19,12 +19,30 @@ public class ClientSocketHandler implements Runnable{
     }
     @Override
     public void run() {
+        boolean login = false;
         try {
             while (true){
-                User fromServer = (User) inFromServer.readObject();
-                if(fromServer != null)
-                    client.getAdmin();
-                else {
+                Object fromServer = inFromServer.readObject();
+                // these 2 check if user is null or acctual user object and assigns it to a client like admin factory...
+                if(fromServer instanceof User && fromServer != null){
+                    User fromServerUser = (User) fromServer;
+                    String[] facility = fromServerUser.getBuildingNo().split("(?!^)");
+                    if(fromServerUser.getAccessLevel().equals("Admin")){
+                        client.getAdmin().getAccess(fromServerUser);
+                        login = true;
+                    }else if(facility[0].equals("F")){
+                        client.getAdmin().getAccess(fromServerUser);
+                        login = true;
+                    }
+                    else if(facility[0].equals("D")){
+                        //client.getFactory().getAccess(fromServerUser);
+                        login = true;
+                    }
+                    else if(facility[0].equals("P")){
+                        //client.getParmacy().getAccess(fromServerUser);
+                        login = true;
+                    }
+                }else if(!login && fromServer == null) {
                     System.out.println("Wrong username or password");
                     client.getLogin().loginResponse("Wrong username or password");
                 }
