@@ -51,7 +51,10 @@ public class LoginVM {
             @Override
             public void run() {
                 loginReponse.setValue(response);
+                username.setValue(null);
+                password.setValue(null);
             }
+
         });
     }
 }

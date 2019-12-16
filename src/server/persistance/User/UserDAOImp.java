@@ -28,12 +28,36 @@ public class UserDAOImp implements UserDAO {
 
     @Override
     public User getUserWithLogin(String username, String password) {
+        /*
+        set search_path = 'PharmaSystem';
+
+        CREATE TABLE SystemUser
+                (
+                        username  varchar(25) NOT NULL,
+                        password  varchar(25) UNIQUE NOT NULL,
+                        accessLevel varchar(10),
+                        buildingNo varchar(4),
+                        userNo varchar(10)
+                );
+
+        Insert into SystemUser(username, password, accessLevel, buildingNo, userNo)
+        VALUES ('admin', 'admin', 'admin', 'null', 'U001');
+
+        Select * from SystemUser;
+
+        
+         */
+
+
+
+
+
         User userFromServer = null;
 
         try {
             database.getConnection().createStatement();
             ResultSet rs = database.getStatement().executeQuery(
-                    "SELECT * FROM User\n" +
+                    "SELECT * FROM \"PharmaSystem\".SystemUser\n" +
                     "WHERE username = '" + username + "' AND password = '"+ password +"';"
             );
 
@@ -41,8 +65,8 @@ public class UserDAOImp implements UserDAO {
             String usernameDB = rs.getString("username");
             String passwordDB = rs.getString("password");
             String accessLevelDB = rs.getString("accessLevel");
-            String buildingNoDB = rs.getString("buildingNo");
-            String userNoDB = rs.getString("userNo");
+            String buildingNoDB = rs.getString("buildingno");
+            String userNoDB = rs.getString("userno");
             System.out.println("im in get user with login");
             userFromServer = new User(usernameDB, passwordDB, accessLevelDB, buildingNoDB, userNoDB);
             //TODO Make the response of the server visible in gui
