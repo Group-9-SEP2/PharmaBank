@@ -1,5 +1,6 @@
 package viewmodel.login;
 
+import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import model.login.LoginModel;
@@ -14,10 +15,8 @@ public class LoginVM {
         username = new SimpleStringProperty();
         password = new SimpleStringProperty();
         loginReponse = new SimpleStringProperty();
-        //model.addPropertyChangeListener(EventType.LOGIN_RESULT.toString(), this::onLoginResponse);
+        model.addPropertyChangeListener("ResponseUpdated", this::onLoginResponse);
     }
-
-
 
     public StringProperty usernameProperty() {
         return username;
@@ -32,14 +31,28 @@ public class LoginVM {
     }
 
     public void login() {
-        System.out.println(username.get());
-        System.out.println(password.get());
-        model.login(username.get(), password.get());
+        if(username.get() != null && password.get() != null) {
+            loginReponse.setValue(null);
+            model.login(username.get(), password.get());
+        }
+        else{
+            loginReponse.setValue("Must enter both, username and password");
+            username.setValue(null);
+            password.setValue(null);
+        }
     }
 
-    private void onLoginResponse(PropertyChangeEvent evt) {
-        String result = (String) evt.getNewValue();
-        loginReponse.set(result);
+    private void onLoginResponse(PropertyChangeEvent evt){
+        System.out.println("in observer");
+        String response = (String) evt.getNewValue();
+        System.out.println((String) evt.getNewValue());
+        System.out.println((String) evt.getOldValue());
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                loginReponse.setValue(response);
+            }
+        });
     }
 }
 

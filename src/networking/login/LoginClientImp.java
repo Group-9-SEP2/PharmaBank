@@ -8,7 +8,9 @@ public class LoginClientImp implements LoginClient {
     private LoginModel model;
     private String response;
 
+
     public LoginClientImp(ClientSocketHandler csh){
+        this.model = model;
         this.socketHandler = csh;
     }
 
@@ -26,6 +28,7 @@ public class LoginClientImp implements LoginClient {
 
     @Override
     public void loginResponse(String response) {
+        System.out.println(response + " in server");
         this.response = response;
         model.loginResponse(response);
     }
