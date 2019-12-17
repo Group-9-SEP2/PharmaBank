@@ -33,8 +33,10 @@ public class ServerSocketHandler implements Runnable {
             while (true){
                 String fromClient = (String) inFromClient.readObject();
                 String[] dividedFromClient = fromClient.split("/");
-                if(dividedFromClient[0].equals("Login"))
+                if(dividedFromClient[0].equals("Login")) {
                     outToClient.writeObject(serverModel.login(dividedFromClient[1], dividedFromClient[2]));
+                    System.out.println("returnedfrom inside server to serversocket");
+                }
                 else if(dividedFromClient[0].equals("Admin")){
                     if(dividedFromClient[1].equals("CreateBuilding"))
                         serverModel.createBuilding();

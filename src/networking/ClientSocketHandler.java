@@ -27,8 +27,10 @@ public class ClientSocketHandler implements Runnable{
                 if(fromServer instanceof User && fromServer != null){
                     User fromServerUser = (User) fromServer;
                     String[] facility = fromServerUser.getBuildingNo().split("(?!^)");
-                    if(fromServerUser.getAccessLevel().equals("Admin")){
+                    System.out.println();
+                    if(fromServerUser.getAccessLevel().equals("admin")){
                         client.getAdmin().getAccess(fromServerUser);
+                        System.out.println("got admin");
                         login = true;
                     }else if(facility[0].equals("F")){
                         client.getAdmin().getAccess(fromServerUser);

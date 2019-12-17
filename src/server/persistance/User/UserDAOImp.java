@@ -4,7 +4,9 @@ import server.persistance.DatabaseConnection;
 import server.persistance.User.UserDAO;
 import shared.User;
 
+import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 public class UserDAOImp implements UserDAO {
@@ -39,24 +41,43 @@ public class UserDAOImp implements UserDAO {
                         buildingNo varchar(4),
                         userNo varchar(10)
                 );
-
         Insert into SystemUser(username, password, accessLevel, buildingNo, userNo)
         VALUES ('admin', 'admin', 'admin', 'null', 'U001');
 
         Select * from SystemUser;
-
-        
          */
-
-
-
-
-
         User userFromServer = null;
+        System.out.println("before database");
+        try {
+            database.setStatement(database.getConnection().createStatement());
+            ResultSet rs = database.getStatement().executeQuery( "SELECT * FROM \"PharmaSystem\".SystemUser " +
+                    "WHERE username = '" + username + "' AND password = '"+ password +"';" );
+            while ( rs.next() ) {
+                String usernameDB = rs.getString("username");
+                String passwordDB = rs.getString("password");
+                String accessLevelDB = rs.getString("accessLevel");
+                String buildingNoDB = rs.getString("buildingno");
+                String userNoDB = rs.getString("userno");
 
+                System.out.println(usernameDB);
+                System.out.println(passwordDB);
+                System.out.println(accessLevelDB);
+                System.out.println(buildingNoDB);
+                System.out.println(userNoDB);
+                userFromServer = new User(usernameDB, passwordDB, accessLevelDB, buildingNoDB, userNoDB);
+                rs.close();
+                database.getStatement().close();
+                database.getConnection().close();
+                return userFromServer;
+            }
+        } catch ( Exception e ) {
+            System.err.println( e.getClass().getName()+": "+ e.getMessage() );
+            System.exit(0);
+        }
+        /*
         try {
             database.getConnection().createStatement();
-            ResultSet rs = database.getStatement().executeQuery(
+            ResultSet rs = database.getStatement().executeQuery( "SELECT * FROM \"PharmaSystem\".SystemUser;" );
                     "SELECT * FROM \"PharmaSystem\".SystemUser\n" +
                     "WHERE username = '" + username + "' AND password = '"+ password +"';"
             );
@@ -78,6 +99,7 @@ public class UserDAOImp implements UserDAO {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        */
         return null;
     }
 }

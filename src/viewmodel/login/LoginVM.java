@@ -31,7 +31,7 @@ public class LoginVM {
     }
 
     public void login() {
-        if(username.get() != null && password.get() != null) {
+        if(username.get() != null && !username.get().isEmpty() && password.get() != null && !username.get().isEmpty()) {
             loginReponse.setValue(null);
             model.login(username.get(), password.get());
         }

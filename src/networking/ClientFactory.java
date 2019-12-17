@@ -29,8 +29,7 @@ public class ClientFactory {
             e.printStackTrace();
         }
         this.login = new LoginClientImp(socketHandler);
-        //this.admin = new AdminClientImp(socketHandler);
-
+        this.admin = new AdminClientImp(socketHandler);
     }
 
     public LoginClient getLogin() {
